@@ -13,10 +13,13 @@ public class RLearning {
 		
 		Random rand = new Random();
 		
-		// Learn rate and discount factor
+		// Learn rate and discount factor max number of episodes
 		final double alpha = 0.1;
 		final double gamma = 0.9;
-		final int maxEpisodes = 1000;
+		final int maxEpisodes = 300;
+		
+		// for your viewing pleasure change to true.
+		final boolean watchLearning = false;
 				
 		// Declare and render the world
 		RLWorld world = new RLWorld();
@@ -68,9 +71,16 @@ public class RLearning {
 				// set robot state
 				state = nextState;
 
+				if (watchLearning) {
+					try{
+						Thread.sleep(1);
+					}catch(Exception e){}
+				}
 			}
 		}
 		
+		System.out.println("Episodes over. Showing policies.");
+		System.out.println("Press ESC key on GUI to exit...");
 		// display and animate policy obtained from RL
 		world.showPolicy(brain);		
 
