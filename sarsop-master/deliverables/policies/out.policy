@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Policy version="0.1" type="value" model="../deliverables/models/robotSearch.pomdpx" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="policyx.xsd">
+<AlphaVector vectorLength="6" numObsValue="1" numVectors="10">
+<Vector action="9" obsValue="0">0 0 0 0 10 0 </Vector>
+<Vector action="3" obsValue="0">-1 7.55 -1 7.075 -1 -1 </Vector>
+<Vector action="1" obsValue="0">-2 6.075 6.55 -2 -2 -2 </Vector>
+<Vector action="6" obsValue="0">0 10 0 0 0 0 </Vector>
+<Vector action="1" obsValue="0">6.55 6.075 -2 -2 -2 -2 </Vector>
+<Vector action="3" obsValue="0">-1 -1 7.55 7.075 -1 -1 </Vector>
+<Vector action="8" obsValue="0">0 0 0 10 0 0 </Vector>
+<Vector action="7" obsValue="0">0 0 10 0 0 0 </Vector>
+<Vector action="5" obsValue="0">10 0 0 0 0 0 </Vector>
+<Vector action="3" obsValue="0">7.55 -1 -1 7.075 -1 -1 </Vector>
+</AlphaVector> </Policy>

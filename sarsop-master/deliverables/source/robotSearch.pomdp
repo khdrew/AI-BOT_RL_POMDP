@@ -1,0 +1,113 @@
+# Created by Andrew Lai for POMDP robot problem on 26/10/2017
+
+# Initial preamble
+# states of treasure being at each door and terminated state
+# actions to sample room and actions to commit to a door
+# observation of seeing treasure or not
+discount: 0.95
+values: reward
+states: door0_t door1_t door2_t door3_t door4_t terminated
+actions: open0 open1 open2 open3 open4 take0 take1 take2 take3 take4
+observations: treasure no_treasure
+
+# uniform treasure state start, cannot start in terminated state
+start exclude: terminated
+
+# action to check contents of room but cannot change treasure position
+T: open0
+identity
+
+T: open1
+identity
+
+T: open2
+identity
+
+T: open3
+identity
+
+T: open4
+identity
+
+# terminal actions that commit to specific answer and transition the robot to the terminal state
+T: take0 : * : terminated 1.0
+T: take1 : * : terminated 1.0
+T: take2 : * : terminated 1.0
+T: take3 : * : terminated 1.0
+T: take4 : * : terminated 1.0
+
+
+# actions to check contents of room if treasure is in that room
+# 0.85 chance of observing treasure if treasure exist
+# 0.1 chance of observing treasure that does not exist
+O: open0
+0.85 0.15
+0.1 0.9
+0.1 0.9
+0.1 0.9
+0.1 0.9
+0.5 0.5
+
+O: open1
+0.1 0.9
+0.85 0.15
+0.1 0.9
+0.1 0.9
+0.1 0.9
+0.5 0.5
+
+O: open2
+0.1 0.9
+0.1 0.9
+0.85 0.15
+0.1 0.9
+0.1 0.9
+0.5 0.5
+
+O: open3
+0.1 0.9
+0.1 0.9
+0.1 0.9
+0.85 0.15
+0.1 0.9
+0.5 0.5
+
+O: open4
+0.1 0.9
+0.1 0.9
+0.1 0.9
+0.1 0.9
+0.85 0.15
+0.5 0.5
+
+# terminal action observations are irrelevent currently
+O: take0
+uniform
+
+O: take1
+uniform
+
+O: take2
+uniform
+
+O: take3
+uniform
+
+O: take4
+uniform
+
+# cost of observing doors
+R: open0 : * : * : * -3
+R: open1 : * : * : * -2
+R: open2 : * : * : * -5
+R: open3 : * : * : * -1
+R: open4 : * : * : * -4
+
+# reward of getting treasure
+R: take0 : door0_t : terminated : * 50
+R: take1 : door1_t : terminated : * 50
+R: take2 : door2_t : terminated : * 50
+R: take3 : door3_t : terminated : * 50
+R: take4 : door4_t : terminated : * 50
+
+# no reward for getting wrong door

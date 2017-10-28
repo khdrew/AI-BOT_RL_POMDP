@@ -1,0 +1,12 @@
+digraph G
+{
+root [label="Y (s0) 0.2\lA (a3)\l" shape=doublecircle labeljust="l"];
+x0row7 [label="Y (s3) 0.68\lA (a8)\l"];
+x0row8 [label="Y (s0) 0.24\lA (a5)\l"];
+x0row11 [label="Y (s5) 1\lA (a5)\l"];
+root -> x0row7 [label="o (o0) 0.25\l"];
+root -> x0row8 [label="o (o1) 0.75\l"];
+x0row7 -> x0row11 [label="o (o0) 0.5\l"];
+x0row11 -> x0row11 [label="o (o0) 0.5\l"];
+x0row8 -> x0row11 [label="o (o0) 0.5\l"];
+}
